@@ -1,0 +1,20 @@
+{
+  "name": "rascal-erratic",
+  "version": "1.0.0",
+  "description": "------",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irvingjem/rascal-erratic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irvingjem/rascal-erratic/issues"
+  },
+  "homepage": "https://github.com/irvingjem/rascal-erratic#readme"
+}
