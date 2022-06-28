@@ -1,5 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SearchNFTS from './pages/SeachNFTS';
+import SavedNFTS from './pages/SavedNFTS';
+import Navbar from './components/Navbar';
 
 import { setContext } from '@apollo/client/link/context'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
@@ -35,8 +38,8 @@ function App() {
       <>
         <Navbar />
         <Switch>
-          <Route exact path='/' component={SearchBooks} />
-          <Route exact path='/saved' component={SavedBooks} />
+        <Route exact path='/' component={SearchNFTS} />
+          <Route exact path='/saved' component={SavedNFTS} />
           <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
         </Switch>
       </>
