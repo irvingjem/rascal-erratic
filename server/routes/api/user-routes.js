@@ -14,4 +14,6 @@ router.route('/').post(createUser).put(authMiddleware, savedNfts);
 
 router.route('/login').post(login);
 
+router.route('/me').get(authMiddleware, getSingleUser);
+
 module.exports = router;
