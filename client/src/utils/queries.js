@@ -1,4 +1,4 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 export const GET_ME = gql`
 {
@@ -6,7 +6,21 @@ export const GET_ME = gql`
       _id
       username
       email
+      mintCount
+      saveMint {
+        symbol
+        name
+        description
+        featured
+        edition
+        image
+        price
+        size
+        launchDatetime
+      }
       }
     }
   }
 `;
+
+// SAVED NFTS array inside of "me"
