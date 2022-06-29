@@ -30,6 +30,11 @@ This a project was built using the MERN Stack!<br>
 
 ## Demo
 
-## Author 
+## Authors
+
+[Andy](https://github.com/superfishal)
+[Austin](https://github.com/KingAusti)
+[Jem](https://github.com/irvingjem)
+[Travis](https://github.com/ValiantThor92)
 
 ## SPECIFICATIONS
