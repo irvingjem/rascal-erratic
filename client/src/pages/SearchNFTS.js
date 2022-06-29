@@ -13,7 +13,7 @@ import { getMints } from "../utils/API";
 
 import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
-import { SAVE_BOOK } from "../utils/mutations";
+import { SAVE_MINT } from "../utils/mutations";
 import { saveBookIds, getSavedBookIds } from "../utils/localStorage";
 // const getLaunchpad = () => {
 //     try { const response = await getMints();
@@ -81,7 +81,15 @@ const getLaunchpad = async () => {
   //       console.error(err);
   //     }
   //   };
-  return <div>some NFT data</div>;
+  return <div className = "container-fluid"> 
+    <Jumbotron/>
+    <Container/>
+    <Col/>
+    <Form/>
+    <Button/>
+    <Card/>
+    <CardColumns/>
+  </div>;
 };
 
 export default getLaunchpad;
