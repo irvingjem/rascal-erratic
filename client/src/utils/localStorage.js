@@ -1,20 +1,20 @@
-export const getSavedBookIds = () => {
-  const savedMintIds = localStorage.getItem("saved_books")
-    ? JSON.parse(localStorage.getItem("saved_books"))
+export const getSavedMintIds = () => {
+  const savedMintIds = localStorage.getItem("saved_mint")
+    ? JSON.parse(localStorage.getItem("saved_mint"))
     : [];
 
   return savedMintIds;
 };
 
-export const saveMintIds = (bookIdArr) => {
-  if (bookIdArr.length) {
-    localStorage.setItem("saved_mint", JSON.stringify(bookIdArr));
+export const saveMintIds = (mintIdArr) => {
+  if (mintIdArr.length) {
+    localStorage.setItem("saved_mint", JSON.stringify(mintIdArr));
   } else {
     localStorage.removeItem("saved_mint");
   }
 };
 
-export const removeBookId = (mintId) => {
+export const removeMintId = (mintId) => {
   const savedMintIds = localStorage.getItem("saved_mint")
     ? JSON.parse(localStorage.getItem("saved_mint"))
     : null;

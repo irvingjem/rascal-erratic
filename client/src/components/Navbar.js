@@ -15,19 +15,19 @@ const AppNavbar = () => {
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Navbar.Brand as={Link} to="/">
-            Google Books Search
+            NFT Mint Tracker
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
             <Nav className="ml-auto">
               <Nav.Link as={Link} to="/">
-                Search For Books
+                Launchpad
               </Nav.Link>
-              {/* if user is logged in show saved books and logout */}
+              {/* if user is logged in show saved Mintss and logout */}
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to="/saved">
-                    See Your Books
+                    See Your Saved NFTS
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
@@ -64,7 +64,7 @@ const AppNavbar = () => {
           <Modal.Body>
             <Tab.Content>
               <Tab.Pane eventKey="login">
-                {/* <LoginForm handleModalClose={() => setShowModal(false)} /> */}
+                <LoginForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
               <Tab.Pane eventKey="signup">
                 <SignUpForm handleModalClose={() => setShowModal(false)} />
