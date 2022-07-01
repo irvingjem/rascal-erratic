@@ -11,7 +11,7 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar className="nav">
         <Container fluid>
           <Navbar.Brand as={Link} to="/">
             NFT Mint Tracker

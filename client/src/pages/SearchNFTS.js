@@ -80,7 +80,7 @@ function SearchNFTS() {
   // Rendering componant 
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark"></Jumbotron>
+      <Jumbotron fluid className="header"></Jumbotron>
       <Container>
         <CardColumns>
         

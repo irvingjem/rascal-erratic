@@ -16,9 +16,22 @@ h6 {
   font-style: italic;
 }
 
+nav {
+  background-image: url("./assets/background.jpg");
+  background-position: bottom;
+}
+
+.header {
+  background-image: url("./assets/header.webp");
+  background-position: 25%;
+  height: 200px;
+}
+
   /* html, */
-body {background-image: url("./background4.webp");
-  background-size: 50%;
+body {
+  background-image: url("./assets/background.jpg");
+  background-size: 100%;
+  background-position: fixed; /* this doesnt work for some reason */
 }
 
 .maysSuperItemContainer{
@@ -26,10 +39,9 @@ body {background-image: url("./background4.webp");
   justify-content: center;
 }
 
-.glassCard{
-  background-color: rgba(255, 255, 255, 0.1);
+.card{
+  background-color: rgba(10, 201, 20, 0.411);
   /* fill-opacity: 50%; */
-
   backdrop-filter: blur(8px);
   padding: 2rem;
   border-radius: 10px;
@@ -41,4 +53,9 @@ body {background-image: url("./background4.webp");
   outline-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0px 2px 15px 1px black;
   margin:20px;
+}
+
+.my-2 {
+  margin-top: var(--spacing-two);
+  margin-bottom: var(--spacing-two);
 }
