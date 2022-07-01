@@ -13,7 +13,7 @@ const AppNavbar = () => {
     <>
       <Navbar className="nav">
         <Container fluid>
-          <Navbar.Brand as={Link} to="/">
+          <Navbar.Brand as={Link} to="/" className="homebutton">
             NFT Mint Tracker
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar" />
