@@ -12,7 +12,6 @@ export const GET_ME = gql`
         name
         description
         featured
-        edition
         image
         price
         size
