@@ -1,9 +1,9 @@
-<<<<<<< HEAD
 //import gql from 'graphql-tag';
 import { gql } from "@apollo/client";
-=======
-import gql from 'graphql-tag';
->>>>>>> main
+
+//import gql from 'graphql-tag';
+
+
 
 export const LOGIN_USER = gql`
 mutation login($email: String!, $password: String!) {

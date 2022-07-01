@@ -15,3 +15,78 @@ h6 {
   font-weight: 300;
   font-style: italic;
 }
+
+nav {
+  background-image: url("./assets/background.jpg");
+  background-position: bottom;
+}
+
+.header {
+  background-image: url("./assets/header.webp");
+  background-position: 25%;
+  height: 200px;
+}
+
+  /* html, */
+body {
+  background-image: url("./assets/background.jpg");
+  background-size: 100%;
+  background-position: fixed; /* this doesnt work for some reason */
+}
+
+.maysSuperItemContainer{
+  display:flex;
+  justify-content: center;
+}
+
+.card{
+  background-color: rgba(10, 201, 20, 0.411);
+  /* fill-opacity: 50%; */
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: transparent;
+  border-style: solid;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 2px 15px 1px black;
+  margin:20px;
+}
+
+button {
+  background-color: rgba(255, 0, 132, 0.7);
+  box-shadow:0px 0px 5px 5px rgb(0, 0, 0);
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding: 0.25rem 1rem;
+  border-radius: .5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 10px 5px;
+} 
+
+ button:hover {
+  position: relative;
+  top: 1px;
+  left:1px;
+}
+
+button[disabled] {
+  cursor: default;
+  opacity: .8;
+} 
+  
+.itemButton{
+  color:rgb(0, 0, 0);
+  border-radius: .5rem;
+  color: black;
+}
+
+.my-2 {
+  margin-top: var(--spacing-two);
+  margin-bottom: var(--spacing-two);
+}

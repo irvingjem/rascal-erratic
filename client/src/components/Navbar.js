@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 import SignUpForm from "./SignupForm";
 import LoginForm from './LoginForm';
-
 import Auth from "../utils/auth";
 
 const AppNavbar = () => {
@@ -12,7 +11,7 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar className="nav">
         <Container fluid>
           <Navbar.Brand as={Link} to="/">
             NFT Mint Tracker
