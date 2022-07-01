@@ -15,3 +15,30 @@ h6 {
   font-weight: 300;
   font-style: italic;
 }
+
+  /* html, */
+body {background-image: url("./background4.webp");
+  background-size: 50%;
+}
+
+.maysSuperItemContainer{
+  display:flex;
+  justify-content: center;
+}
+
+.glassCard{
+  background-color: rgba(255, 255, 255, 0.1);
+  /* fill-opacity: 50%; */
+
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: transparent;
+  border-style: solid;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 2px 15px 1px black;
+  margin:20px;
+}
