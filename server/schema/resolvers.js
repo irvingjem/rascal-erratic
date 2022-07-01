@@ -30,6 +30,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     }
+    // newMint: async (parent, args)
 }
 }
 

@@ -9,12 +9,12 @@ import {
   CardColumns,
 } from "react-bootstrap";
 // import { getMints } from "../utils/API";
-
+import { useMutation } from '@apollo/client';
 import Auth from "../utils/auth";
 // import { useQuery } from "@apollo/client";
 // import { GET_ME } from '../utils/queries'
-// import { SAVE_MINT } from "../utils/mutations";
-// import { SAVE_MINT } from "../utils/mutations";
+import { SAVE_MINT } from "../utils/mutations";
+// import { REMOVE_MINT } from '../utils/mutations';
 
 // import { saveMintNames, getSavedMintNames } from "../utils/localStorage";
 
@@ -36,21 +36,45 @@ import Auth from "../utils/auth";
 function SearchNFTS() {
   const [saveMint, setSaveMint] = useState([]);
 // API call
-// const {loading, data} = useQuery(GET_ME)
-  // {GET_ME} // Using the mint.name query
+  const [saveUserMint] = useMutation(SAVE_MINT);
+
+
   useEffect(() => {
     const fetchMints = async () => {
       const result = await fetch(
-        `https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=20`
+        `https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=50`
       );
       
       const data = await result.json();
       console.log(data);
       setSaveMint(data);
-    };
+      
+     };
 
     fetchMints();
-  }, []); // Use effect array
+  }, []); 
+  
+  const handleSaveMint = async (name) => {
+    const mintToSave = saveMint.find((data) => data.name === name )
+    console.log(mintToSave)
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+      return false;
+    }
+  
+    try {
+      const {data} = await saveUserMint({variables:{mintData:mintToSave}});
+  
+      // if (!response.ok) {
+      //   throw new Error('something went wrong!');
+      // }
+  
+      // if book successfully saves to user's account, save book id to state
+      setSaveMint([...saveMint, mintToSave.mintNames]);
+    } catch (err) {
+      console.error(err);
+    }
+  }// Use effect array
 
 
   // Rendering componant 
@@ -73,21 +97,21 @@ function SearchNFTS() {
                 <Card.Title>{mint.name}</Card.Title>
                 <p className="small">Price {mint.price} SOL</p>
                 <Card.Text>{mint.description}</Card.Text>
-                {/* {Auth.loggedIn() && (
+                {Auth.loggedIn() && (
                   <Button
-                    disabled={savedMintIds?.some(
-                      (savedMintName) => savedMintName === mint.mintName
+                    disabled={saveMint?.some(
+                      (saveMint) => saveMint === mint.name
                     )}
                     className="btn-block btn-info"
-                    onClick={() => handleSaveMint(mint.mintName)}
+                    onClick={() => handleSaveMint(mint.name)}
                   >
-                    {savedMintNames?.some(
-                      (savedMintName) => savedMintName === mint.mintName
+                    {saveMint?.some(
+                      (saveMint) => saveMint === mint.name
                     )
                       ? "This NFT has already been saved!"
                       : "Save this NFT!"}
                   </Button>
-                )} */}
+                )}
               </Card.Body>
             </Card>
           ))}
