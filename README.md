@@ -18,8 +18,9 @@ SO THAT I can flex on all my friends <br>
 
 ## Installation
 1. Clone repository using 'git clone"
-2. Install necessary dependencies, run the following command: <br> 'npm install'
-3. To run application 'node server.js' in the command line
+2. Install necessary dependencies, run the following command: <br> 
+`npm install`
+3. To run application `node server.js` in the command line
 
 ## Project Screenshot
 
@@ -41,4 +42,4 @@ This a project was built using the MERN Stack!<br>
 [Jem](https://github.com/irvingjem) <br>
 [Travis](https://github.com/ValiantThor92) <br>
 
-## SPECIFICATIONS
+H~2~0
