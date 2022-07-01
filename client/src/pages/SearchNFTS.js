@@ -11,10 +11,12 @@ import {
 // import { getMints } from "../utils/API";
 
 import Auth from "../utils/auth";
-// import { useMutation } from "@apollo/client";
+// import { useQuery } from "@apollo/client";
+// import { GET_ME } from '../utils/queries'
+// import { SAVE_MINT } from "../utils/mutations";
 // import { SAVE_MINT } from "../utils/mutations";
 
-import { saveMintIds, getSavedMintIds } from "../utils/localStorage";
+// import { saveMintNames, getSavedMintNames } from "../utils/localStorage";
 
 // const getLaunchpad = () => {
 //     try { const response = await getMints();
@@ -27,30 +29,37 @@ import { saveMintIds, getSavedMintIds } from "../utils/localStorage";
 //     )
 // }
 
-// Function to pull Api data and display
 
+
+
+// Function to pull Api data and display
 function SearchNFTS() {
   const [saveMint, setSaveMint] = useState([]);
-
+// API call
+// const {loading, data} = useQuery(GET_ME)
+  // {GET_ME} // Using the mint.name query
   useEffect(() => {
     const fetchMints = async () => {
       const result = await fetch(
         `https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=20`
       );
-
+      
       const data = await result.json();
       console.log(data);
       setSaveMint(data);
     };
 
     fetchMints();
-  }, []);
+  }, []); // Use effect array
 
+
+  // Rendering componant 
   return (
     <>
       <Jumbotron fluid className="text-light bg-dark"></Jumbotron>
       <Container>
         <CardColumns>
+        
           {saveMint.map((mint) => (
             <Card key={mint.name} border="dark">
               {mint.image ? (
@@ -67,13 +76,13 @@ function SearchNFTS() {
                 {/* {Auth.loggedIn() && (
                   <Button
                     disabled={savedMintIds?.some(
-                      (savedMintId) => savedMintId === mint.mintId
+                      (savedMintName) => savedMintName === mint.mintName
                     )}
                     className="btn-block btn-info"
-                    onClick={() => handleSaveMint(mint.mintId)}
+                    onClick={() => handleSaveMint(mint.mintName)}
                   >
-                    {savedMintIds?.some(
-                      (savedMintId) => savedMintId === mint.mintId
+                    {savedMintNames?.some(
+                      (savedMintName) => savedMintName === mint.mintName
                     )
                       ? "This NFT has already been saved!"
                       : "Save this NFT!"}

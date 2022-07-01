@@ -4,6 +4,8 @@ const {
   createUser,
   getSingleUser,
   login,
+  saveMint,
+  deleteMint,
 } = require('../../controllers/user-controller');
 
 // import middleware
@@ -15,6 +17,8 @@ router.route('/').post(createUser).put(authMiddleware, savedNfts);
 router.route('/login').post(login);
 
 router.route('/me').get(authMiddleware, getSingleUser);
+// Build this for Mints
+// router.route('/mints/:mintId').delete(authMiddleware, deleteMint);
 
 module.exports = router;
 
