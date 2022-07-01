@@ -34,7 +34,7 @@ function LoginForm(props) {
   };
 
   return (
-    <div className="container my-1">
+    <div className="container my-1 header">
       <Link to="/signup"> Go to Sign Up </Link>
 
       <h2>Login</h2>
@@ -68,7 +68,7 @@ function LoginForm(props) {
         </FormGroup>
         {' '}
         {error ? (
-          <div className="butt">
+          <div>
             <p className="error-text">The provided credentials are incorrect</p>
           </div>
         ) : null}

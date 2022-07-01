@@ -21,10 +21,26 @@ nav {
   background-position: bottom;
 }
 
+.nav-link {
+  background-color: rgba(255, 0, 132, 0.7);
+
+}
+
 .header {
   background-image: url("./assets/header.webp");
   background-position: 25%;
   height: 200px;
+}
+
+div.modal-header {
+  background-image: url("./assets/modal1.jpg");
+  background-position: center;
+  background-size: 75%;
+}
+
+div.modal-body {
+  background-image: url("./assets/background.jpg");
+  background-size: 100%;
 }
 
   /* html, */
@@ -55,7 +71,7 @@ body {
   margin:20px;
 }
 
-button {
+.button {
   background-color: rgba(255, 0, 132, 0.7);
   box-shadow:0px 0px 5px 5px rgb(0, 0, 0);
   color: white;
@@ -89,4 +105,15 @@ button[disabled] {
 .my-2 {
   margin-top: var(--spacing-two);
   margin-bottom: var(--spacing-two);
+}
+
+.my-1 {
+  margin-top: var(--spacing-one);
+  margin-bottom: var(--spacing-one);
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
 }
