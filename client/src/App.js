@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SearchNFTS from "./pages/SearchNFTS";
+import GetMints from "./pages/SearchNFTS";
 import SavedNFTS from "./pages/SavedNFTS";
 import Navbar from "./components/Navbar";
 
@@ -35,12 +35,13 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={client}
+    >
       <Router>
         <>
           <Navbar />
           <Switch>
-            <Route exact path="/" component={SearchNFTS} />
+            <Route exact path="/" component={GetMints} />
             <Route exact path="/saved" component={SavedNFTS} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
@@ -51,3 +52,5 @@ function App() {
 }
 
 export default App;
+
+

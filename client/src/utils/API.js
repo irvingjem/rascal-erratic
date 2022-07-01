@@ -28,8 +28,8 @@ export const loginUser = (userData) => {
 };
 
 // Grabbing the Magic Eden API for the launchpad
-export const getMints = () => {
-  return fetch(
-    `https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=1`
-  ).then((response) => response.json());
-};
+// export const getMints = () => {
+//   return fetch(
+//     `https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=1`
+//   ).then((response) => response.json());
+// };
