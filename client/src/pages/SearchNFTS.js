@@ -1,20 +1,21 @@
-import { gql } from "@apollo/client";
 import React, { useState, useEffect } from "react";
 import {
   Jumbotron,
   Container,
-  Col,
-  Form,
-  Button,
+    // Col,
+    // Form,
+    Button,
   Card,
   CardColumns,
 } from "react-bootstrap";
-import { getMints } from "../utils/API";
+// import { getMints } from "../utils/API";
 
 import Auth from "../utils/auth";
-import { useMutation } from "@apollo/client";
-import { SAVE_MINT } from "../utils/mutations";
-import { saveBookIds, getSavedBookIds } from "../utils/localStorage";
+// import { useMutation } from "@apollo/client";
+// import { SAVE_MINT } from "../utils/mutations";
+
+import { saveMintIds, getSavedMintIds } from "../utils/localStorage";
+
 // const getLaunchpad = () => {
 //     try { const response = await getMints();
 //         if (!response.ok) {
@@ -25,71 +26,66 @@ import { saveBookIds, getSavedBookIds } from "../utils/localStorage";
 //         <div>Someshit</div>
 //     )
 // }
-const getLaunchpad = async () => {
-  try {
-    const response = await getMints();
-    console.log(response);
-    if (!response.ok) {
-      throw new Error("Something went wrong!");
-    }
 
-    const { items } = await response.json();
+// Function to pull Api data and display
 
-    // const bookData = items.map((book) => ({
-    //   mintId: book.id,
-    //   authors: book.volumeInfo.authors || ["No author to display"],
-    //   title: book.volumeInfo.title,
-    //   description: book.volumeInfo.description,
-    //   image: book.volumeInfo.imageLinks?.thumbnail || "",
-    // }));
+function SearchNFTS() {
+  const [saveMint, setSaveMint] = useState([]);
 
-    //     symbol
-    //     name
-    //     description
-    //     featured
-    //     edition
-    //     image
-    //     price
-    //     size
-    //     launchDatetime
+  useEffect(() => {
+    const fetchMints = async () => {
+      const result = await fetch(
+        `https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=20`
+      );
 
-    // getLaunchpad();
-  } catch (err) {
-    console.error(err);
-  }
-  //   const saveMint = async (mintId) => {
-  //     // find the book in `searchedBooks` state by the matching id
-  //     // const mintToSave = searchedMint.find((mint) => mint.mintId === mintId);
+      const data = await result.json();
+      console.log(data);
+      setSaveMint(data);
+    };
 
-  //     // get token of logged in user
-  //     const token = Auth.loggedIn() ? Auth.getToken() : null;
+    fetchMints();
+  }, []);
 
-  //     if (!token) {
-  //       return false;
-  //     }
+  return (
+    <>
+      <Jumbotron fluid className="text-light bg-dark"></Jumbotron>
+      <Container>
+        <CardColumns>
+          {saveMint.map((mint) => (
+            <Card key={mint.name} border="dark">
+              {mint.image ? (
+                <Card.Img
+                  src={mint.image}
+                  alt={`The cover for ${mint.image}`}
+                  variant="top"
+                />
+              ) : null}
+              <Card.Body>
+                <Card.Title>{mint.name}</Card.Title>
+                <p className="small">Price {mint.price} SOL</p>
+                <Card.Text>{mint.description}</Card.Text>
+                {/* {Auth.loggedIn() && (
+                  <Button
+                    disabled={savedMintIds?.some(
+                      (savedMintId) => savedMintId === mint.mintId
+                    )}
+                    className="btn-block btn-info"
+                    onClick={() => handleSaveMint(mint.mintId)}
+                  >
+                    {savedMintIds?.some(
+                      (savedMintId) => savedMintId === mint.mintId
+                    )
+                      ? "This NFT has already been saved!"
+                      : "Save this NFT!"}
+                  </Button>
+                )} */}
+              </Card.Body>
+            </Card>
+          ))}
+        </CardColumns>
+      </Container>
+    </>
+  );
+}
 
-  //     try {
-  //       const { data } = await saveMint({ variables: { mintData: mintToSave } });
-
-  //       // if (!response.ok) {
-  //       //   throw new Error("something went wrong!");
-  //       // }
-
-  //       // if book successfully saves to user's account, save book id to state
-  //       //   setSavedBookIds([...savedMintIds, MintToSave.mintId]);
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
-  return <div className = "container-fluid"> 
-    <Jumbotron/>
-    <Container/>
-    <Col/>
-    <Form/>
-    <Button/>
-    <Card/>
-    <CardColumns/>
-  </div>;
-};
-
-export default getLaunchpad;
+export default SearchNFTS;
