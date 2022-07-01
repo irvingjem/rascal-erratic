@@ -1,62 +1,115 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+// import { graphql } from "graphql";
+import {
+  Jumbotron,
+  Container,
+  CardColumns,
+  Card,
+  Button,
+} from "react-bootstrap";
+// import Auth from "../utils/auth";
+// import { useMutation, useQuery } from "@apollo/client";
+// import { GET_ME } from "../utils/queries";
+// import { REMOVE_MINT } from "../utils/mutations";
+// import { removeMintName } from "../utils/localStorage";
 
-import { useQuery } from '@apollo/client';
-// import { DirectiveLocation } from 'graphql';
-// import { QUERY_USER } from '../utils/queries';
+const SavedNFTS = () => {
+  return (
+    <>
+      <Jumbotron fluid className="text-light bg-dark">
+        <Container>
+          <h1>Viewing saved NFTS!</h1>
+        </Container>
+      </Jumbotron>
+      <Container>
+      <h2></h2>
+      <CardColumns>
+              <Card>
+                  <Card.Img
+                  />
+                <Card.Body>
+                <Card.Title></Card.Title>
+                  <Card.Text></Card.Text>
+                  <Button>
+                    Delete this NFT!
+                  </Button>
+                </Card.Body>
+              </Card>
+        </CardColumns>
+      </Container>
+    </>
+  );
+};
 
-const div =()=> {
-    return(
-        <div>Hello</div>
-    )}
+// const SavedNFTS = () => {
+//   const { loading, data } = useQuery(GET_ME);
+//   const userData = data?.me || [];
+//   const [deleteMint, {error}] = useMutation(REMOVE_MINT);
 
+//   const handleDeleteMint = async (mintName) => {
+//     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-
-// function SavedNFTS() {
-//     const { data } = useQuery(QUERY_USER);
-//     let user;
-  
-//     if (data) {
-//       user = data.user;
+//     if (!token) {
+//       return false;
 //     }
 
-//     return(
-//         <>
-//       <div className="container my-1">
-//         <Link to="/">← Back to Products</Link>
+//     try {
+//       const { data } = await deleteMint({ variables: { mintName } });
 
-//         {user ? (
-//           <>
-//             <h2>
-//               Saved NFT's for {user.firstName} {user.lastName}
-//             </h2>
-//             {user.orders.map((order) => (
-//               <div key={order._id} className="my-2">
-//                 <h3>
-//                   {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
-//                 </h3>
-//                 <div className="flex-row">
-//                   {order.products.map(({ _id, image, name, price }, index) => (
-//                     <div key={index} className="card px-1 py-1">
-//                       <Link to={`/products/${_id}`}>
-//                         <img alt={name} src={`/images/${image}`} />
-//                         <p>{name}</p>
-//                       </Link>
-//                       <div>
-//                         <span>${price}</span>
-//                       </div>
-//                     </div>
-//                   ))}
-//                 </div>
-//               </div>
-//             ))}
-//           </>
-//         ) : null}
-//       </div>
+//       removeMintName(mintName);
+//     } catch (err) {
+//       console.error(err);
+//     }
+//   };
+
+//   if (loading) {
+//     return <h2>LOADING...</h2>;
+//   }
+
+//   return (
+//     <>
+//       <Jumbotron fluid className="text-light bg-dark">
+//         <Container>
+//           <h1>Viewing saved NFTS!</h1>
+//         </Container>
+//       </Jumbotron>
+//       <Container>
+//         <h2>
+//           {userData.savedMint.length
+//             ? `Viewing ${userData.savedMint.length} saved ${
+//                 userData.savedMint.length === 1 ? "NFT" : "NTF's"
+//               }:`
+//             : "You have no saved NFT's!"}
+//         </h2>
+//         <CardColumns>
+//           {userData.savedMint.map((mint) => {
+//             return (
+//               <Card key={mint.mintName} border="dark">
+//                 {mint.image ? (
+//                   <Card.Img
+//                     src={mint.image}
+//                     alt={`The cover for ${mint.name}`}
+//                     variant="top"
+//                   />
+//                 ) : null}
+//                 <Card.Body>
+//                   <Card.Title>{mint.title}</Card.Title>
+//                   <p className="small">Description: {mint.description}</p>
+//                   <Card.Text>{mint.description}</Card.Text>
+//                   <Button
+//                     className="btn-block btn-danger"
+//                     onClick={() => handleDeleteMint(mint.mintName)}
+//                   >
+//                     Delete this NFT!
+//                   </Button>
+//                 </Card.Body>
+//               </Card>
+//             );
+//           })}
+//         </CardColumns>
+//       </Container>
 //     </>
 //   );
 // }
 
-
-export default div;
-// export default SavedNFTS;
+export default SavedNFTS;
