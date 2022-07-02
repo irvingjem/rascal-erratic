@@ -39,25 +39,35 @@ function SearchNFTS() {
   useEffect(() => {
     const fetchMints = async () => {
       const result = await fetch(
-        `https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=3`
+        `https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=200`
       );
-      // const startDate = new Date();
-      // const currentMonth = startDate.getMonth() + 1;
-      // console.log(currentMonth);
+      const thisMonthsNfts = [];
+      const startDate = new Date();
+      const currentMonth = startDate.getMonth() + 1;
+      console.log(currentMonth);
       const data = await result.json();
       console.log(data);
+      data.map((Nft) => {
+        let fullDate = Nft.launchDatetime.split("-")[1];
+        console.log(fullDate);
+        if (fullDate == currentMonth) {
+          thisMonthsNfts.push(Nft);
+        } else {
+          console.log(fullDate + " is not the same month as " + currentMonth);
+        }
+      });
+      console.log(thisMonthsNfts);
+      // const resultFilterMints = data.filter(function (dropDate) {
+      //   let date = new Date(dropDate.launchDatetime);
+      //   let monthMint = date.getMonth() + 1;
+      //   console.log(monthMint);
+      //   //  for (i = 0; i < data.length; i++) {
 
-      //   const resultFilterMints = data.filter(function (dropDate) {
-      //     let date = new Date(dropDate.launchDatetime);
-      //     let monthMint = date.getMonth() + 1;
-      //     console.log(monthMint);
-      //  for (i = 0; i < data.length; i++) {
-
-      //  }
-      //     return date >= startDate;
-      //   });
+      //   //  }
+      //   return date >= startDate;
+      // });
       // console.log(resultFilterMints);
-      setSaveMint(data);
+      setSaveMint(thisMonthsNfts);
     };
     fetchMints();
   }, []);
