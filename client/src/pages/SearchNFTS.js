@@ -10,7 +10,11 @@ import {
   CardColumns,
 } from "react-bootstrap";
 // import { getMints } from "../utils/API";
+<<<<<<< HEAD
 import { useMutation } from "@apollo/client";
+=======
+import { useMutation } from '@apollo/client';
+>>>>>>> 2263dd62dc2e61c0b5cc084ad3d1562b3b57a911
 import Auth from "../utils/auth";
 // import { useQuery } from "@apollo/client";
 // import { GET_ME } from '../utils/queries'
@@ -96,10 +100,14 @@ function SearchNFTS() {
     }
   }; // Use effect array
 
+<<<<<<< HEAD
   // Rendering componant
+=======
+  // Rendering componant 
+>>>>>>> 2263dd62dc2e61c0b5cc084ad3d1562b3b57a911
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark"></Jumbotron>
+      <Jumbotron fluid className="header"></Jumbotron>
       <Container>
         <CardColumns>
           {saveMints.map((mint) => (
