@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 import SignUpForm from "./SignupForm";
-import LoginForm from "./LoginForm";
-
+import LoginForm from './LoginForm';
 import Auth from "../utils/auth";
 
 const AppNavbar = () => {
@@ -12,7 +11,7 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar className="nav">
         <Container fluid>
           <Navbar.Brand as={Link} to="/">
             NFT Mint Tracker
@@ -20,19 +19,19 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
             <Nav className="ml-auto">
-              <Nav.Link as={Link} to="/">
+              <Nav.Link as={Link} to="/" className="button">
                 Launchpad
               </Nav.Link>
               {/* if user is logged in show saved Mintss and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to="/saved">
+                  <Nav.Link as={Link} to="/saved" className="button">
                     See Your Saved NFTS
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>
+                <Nav.Link onClick={() => setShowModal(true)} className="button">
                   Login/Sign Up
                 </Nav.Link>
               )}

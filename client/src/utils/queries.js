@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 export const GET_ME = gql`
-{
+  {
     me {
       _id
       username
@@ -17,6 +17,26 @@ export const GET_ME = gql`
         size
         launchDatetime
       }
+      }
+    }
+  }
+`;
+
+export const QUERY_USER = gql`
+  {
+    user {
+      firstName
+      lastName
+      orders {
+        _id
+        purchaseDate
+        products {
+          _id
+          name
+          description
+          price
+          image
+        }
       }
     }
   }
