@@ -15,23 +15,47 @@ h6 {
   font-weight: 300;
   font-style: italic;
 }
-
+/*
 nav {
   background-image: url("./assets/background.jpg");
   background-position: bottom;
 }
+*/
 
+nav {
+  background-image: url("./assets/header.webp");
+  background-position: center;
+  height: 18rem;
+  background-size: 80%;
+  flex-grow: 1;
+}
+
+.homebutton {
+  background-image: url("./assets/background.jpg");
+  background-size: 50%;
+  box-shadow:0px 0px 5px 5px rgb(0, 0, 0);
+  color: rgba(255, 0, 132, 0.7);
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.25rem 1rem;
+  border-radius: .5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 10px 5px;
+}
 .nav-link {
   background-color: rgba(255, 0, 132, 0.7);
 
 }
-
+/*
 .header {
   background-image: url("./assets/header.webp");
   background-position: 25%;
   height: 200px;
 }
-
+*/
 div.modal-header {
   background-image: url("./assets/modal1.jpg");
   background-position: center;
@@ -112,8 +136,3 @@ button[disabled] {
   margin-bottom: var(--spacing-one);
 }
 
-@media screen and (max-width: 768px) {
-  .card {
-    width: 100%;
-  }
-}

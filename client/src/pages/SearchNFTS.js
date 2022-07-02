@@ -99,7 +99,7 @@ function SearchNFTS() {
   // Rendering componant
   return (
     <>
-      <Jumbotron fluid className="header"></Jumbotron>
+      {/* <Jumbotron fluid className="header"></Jumbotron> */}
       <Container>
         <CardColumns>
           {saveMints.map((mint) => (
