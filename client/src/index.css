@@ -22,6 +22,10 @@ nav {
 }
 */
 
+/* --------- */
+/* Navbar Section  */
+/* --------- */
+
 nav {
   background-image: url("./assets/header.webp");
   background-position: center;
@@ -30,10 +34,22 @@ nav {
   flex-grow: 1;
 }
 
+.nav-link {
+  background-color: rgba(255, 0, 132, 0.7);
+  background-image: url("./assets/background.jpg");
+  background-size: 200%;
+
+}
+
+
+/* --------- */
+/* Home section */
+/* --------- */
+
 .homebutton {
   background-image: url("./assets/background.jpg");
-  background-size: 50%;
-  box-shadow:0px 0px 5px 5px rgb(0, 0, 0);
+  background-size: 200%;
+  box-shadow:0px 0px 2px 2px rgb(0, 0, 0);
   color: rgba(255, 0, 132, 0.7);
   font-size: 2.5rem;
   font-weight: bold;
@@ -45,10 +61,7 @@ nav {
   cursor: pointer;
   margin: 10px 5px;
 }
-.nav-link {
-  background-color: rgba(255, 0, 132, 0.7);
 
-}
 /*
 .header {
   background-image: url("./assets/header.webp");
@@ -70,7 +83,7 @@ div.modal-body {
   /* html, */
 body {
   background-image: url("./assets/background.jpg");
-  background-size: 100%;
+  background-size: cover;
   background-position: fixed; /* this doesnt work for some reason */
 }
 
@@ -78,6 +91,10 @@ body {
   display:flex;
   justify-content: center;
 }
+
+/* --------- */
+/* NFTS */
+/* --------- */
 
 .card{
   background-color: rgba(10, 201, 20, 0.411);
@@ -136,3 +153,13 @@ button[disabled] {
   margin-bottom: var(--spacing-one);
 }
 
+
+@media (max-width: 767px) {
+  
+}
+
+
+/* --------- */
+/* Footer */
+/* --------- */ 
+/*don't have to make one */

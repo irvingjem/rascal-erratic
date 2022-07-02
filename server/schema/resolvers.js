@@ -32,17 +32,17 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveUserMint: async (parent, { mintData }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { savedMints: mintData } },
-          { new: true }
-        );
-        return updatedUser;
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
+    // saveUserMint: async (parent, { mintData }, context) => {
+    //   if (context.user) {
+    //     const updatedUser = await User.findByIdAndUpdate(
+    //       { _id: context.user._id },
+    //       { $push: { savedMints: mintData } },
+    //       { new: true }
+    //     );
+    //     return updatedUser;
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
     // newMint: async (parent, args)
   },
 };
