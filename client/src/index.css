@@ -47,7 +47,7 @@ nav {
 
 .nav-link {
   background-color: rgba(255, 0, 132, 0.7);
-  background-image: url("./assets/background.jpg");
+  /* background-image: url("./assets/background.jpg"); */
   background-size: 100%;
   margin-right: 10px;
 }
@@ -87,12 +87,12 @@ nav {
 div.modal-header {
   background-image: url("./assets/modal1.jpg");
   background-position: center;
-  background-size: 100%;
+  background-size: 60%;
 }
 
 div.modal-body {
   background-image: url("./assets/background.jpg");
-  background-size: auto;
+  background-size: 125%;
 } 
 
   /* html, */
