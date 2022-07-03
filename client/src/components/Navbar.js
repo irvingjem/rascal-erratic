@@ -19,19 +19,19 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
             <Nav className="ml-auto">
-              <Nav.Link as={Link} to="/" className="button">
+              <Nav.Link as={Link} to="/" className="homebutton">
                 Launchpad
               </Nav.Link>
               {/* if user is logged in show saved Mintss and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to="/saved" className="button">
+                  <Nav.Link as={Link} to="/saved" className="homebutton">
                     See Your Saved NFTS
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)} className="button">
+                <Nav.Link onClick={() => setShowModal(true)} className="homebutton">
                   Login/Sign Up
                 </Nav.Link>
               )}

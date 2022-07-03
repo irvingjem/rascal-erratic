@@ -41,5 +41,3 @@ This a project was built using the MERN Stack!<br>
 [Austin](https://github.com/KingAusti) <br>
 [Jem](https://github.com/irvingjem) <br>
 [Travis](https://github.com/ValiantThor92) <br>
-
-H~2~0
