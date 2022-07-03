@@ -22,21 +22,51 @@ nav {
 }
 */
 
+/* --------- */
+/* Navbar Section  */
+/* --------- */
+
 nav {
-  background-image: url("./assets/header.webp");
+  background-image: url("./assets/more_betterish.webp");
   background-position: center;
-  height: 18rem;
-  background-size: 80%;
+  height: 350px;
+  width: auto;
   flex-grow: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+.navbar {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 10px;
+  border-color: black;
+  border-style: solid;
+}
+
+.nav-link {
+  background-color: rgba(255, 0, 132, 0.7);
+  background-image: url("./assets/background.jpg");
+  background-size: 100%;
+  margin-right: 10px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: black;
+}
+
+
+/* --------- */
+/* Home section */
+/* --------- */
 
 .homebutton {
   background-image: url("./assets/background.jpg");
-  background-size: 50%;
-  opacity: .8;
+  background-size: 100%;
   box-shadow:0px 0px 5px 5px rgba(111, 0, 255, 0.801);
   color: rgba(255, 0, 132, 0.7);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: bold;
   text-decoration: none;
   padding: 0.25rem 1rem;
@@ -44,34 +74,31 @@ nav {
   border: none;
   outline: none;
   cursor: pointer;
-  margin: 10px 5px;
+  margin: 20px 20px;
 }
-.nav-link {
-  background-color: rgba(255, 0, 132, 0.7);
 
-}
-/*
-.header {
+
+/* .header {
   background-image: url("./assets/header.webp");
   background-position: 25%;
   height: 200px;
-}
-*/
+} */
+
 div.modal-header {
   background-image: url("./assets/modal1.jpg");
   background-position: center;
-  background-size: 75%;
+  background-size: 100%;
 }
 
 div.modal-body {
   background-image: url("./assets/background.jpg");
-  background-size: 100%;
-}
+  background-size: auto;
+} 
 
   /* html, */
 body {
   background-image: url("./assets/background.jpg");
-  background-size: 100%;
+  background-size: cover;
   background-position: fixed; /* this doesnt work for some reason */
 }
 
@@ -79,6 +106,28 @@ body {
   display:flex;
   justify-content: center;
 }
+
+
+/* --------- */
+/* Saved section */
+/* --------- */
+
+
+.jumbotron {
+  padding: 10px;
+  background-image: url("./assets/background.jpg");
+  background-size: 50%;
+  
+}
+
+.jumbotron h1 {
+  color: black;
+  font-weight: 800;
+}
+
+/* --------- */
+/* NFTS */
+/* --------- */
 
 .card{
   background-color: rgba(10, 201, 20, 0.411);
@@ -136,4 +185,207 @@ button[disabled] {
   margin-top: var(--spacing-one);
   margin-bottom: var(--spacing-one);
 }
+
+
+@media (max-width: 767px) {
+  .card-img-top {
+    padding: 15px !important;
+    opacity: 0.8 !important;
+  }
+}
+
+
+/* --------- */
+/* Footer */
+/* --------- */ 
+
+.footer {
+  background-color: rgb(0, 0, 0);
+  bottom: 0 !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important ;
+  position: fixed;
+  bottom: 0px;
+}
+.footer-copywright {
+  text-align: center !important;
+}
+
+.footer-body {
+  text-align: center !important;
+}
+
+.footer h3 {
+  font-size: 1em;
+  color: white !important;
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em !important;
+}
+
+@media (max-width: 767px) {
+  .footer{
+    padding-top: 0px;
+    position: relative;
+  }
+
+  .footer-copywright {
+    text-align: center !important;
+  }
+
+  .footer-body {
+    text-align: center !important;
+  }
+}
+
+/* MEDIA QUERIES */
+
+@media all and (min-width: 1024px) and (max-width: 1280px) { 
+
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  nav {
+    width: auto;
+  }
+  .card-columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card-columns .card {
+    max-width: 40%;
+  }
+
+  header {
+    padding-bottom: 0;
+    justify-content: center;
+    position:relative;     
+}
+header h1 {
+    width:100%;
+    text-align:center;
+}
+header nav ul {
+    margin-top:20px;
+    width:100%;
+    justify-content:center;        
+}
+header nav ul li a {
+    font-size:20px;
+}
+footer h2, footer div{
+    text-align:center;
+    width:100%;
+}
+.hero-cta, .hero-form{
+    width:100%;
+}
+.hero-cta{
+    text-align:center;
+}
+.section-title{
+    width:80%;    
+}
+.trainer{
+    flex: 0 70%;
+}
+.contact-info iframe{
+    flex: 1 100%;
+    border-radius:10px;
+}
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .navbar-expand .navbar-nav {
+    flex-direction: column;
+} 
+  nav {
+    width: auto;
+  }
+
+  .homebutton {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+
+  .card-columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  section{
+    padding: 30px 15px;
+}
+.step h3{
+    flex: 1 100%;
+    text-align:center;      
+}
+.step-info{
+    flex:2 100%;
+    text-align: center;
+    justify-content: center;
+}
+.step-img {
+    flex:0 32%;
+    margin-right: 0;
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.step-text {
+    flex:100%;   
+}
+}
+
+@media all and (max-width: 480px) {
+  html {
+    width: fit-content;
+  }
+  nav {
+    width: auto;
+  }
+
+  .homebutton {
+    font-size: 1.5rem;
+  }
+
+  .button {
+    font-size: 1rem;
+  }
+
+
+  .navbar-expand .navbar-nav {
+    flex-direction: column;
+} 
+  .hero-form button{
+    width:100%;          
+}
+.section-title {
+    width:95%;          
+}
+.intro p{
+    width:100%;          
+}  
+.trainer{
+    flex:0 100%;
+}
+.contact-info{
+    text-align:center;          
+}
+.contact-info > * {
+    flex:0 100%;
+}
+.contact-form{
+  order:3;
+}
+}
+
 
