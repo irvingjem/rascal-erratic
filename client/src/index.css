@@ -97,9 +97,10 @@ div.modal-body {
 
   /* html, */
 body {
-  background-image: url("./assets/background.jpg");
-  background-size: cover;
-  background-position: fixed; /* this doesnt work for some reason */
+  background-image: url("./assets/background1.jpg");
+  background-size: fill;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .maysSuperItemContainer{
