@@ -29,7 +29,7 @@ nav {
 nav {
   background-image: url("./assets/more_betterish.webp");
   background-position: center;
-  height: 14rem;
+  height: 350px;
   width: auto;
   flex-grow: 1;
   background-repeat: no-repeat;
@@ -39,8 +39,12 @@ nav {
 .nav-link {
   background-color: rgba(255, 0, 132, 0.7);
   background-image: url("./assets/background.jpg");
-  background-size: 200%;
+  background-size: 100%;
   margin-right: 10px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: black;
 }
 
 
@@ -65,24 +69,23 @@ nav {
   margin: 10px 5px;
 }
 
-/*
-.header {
+
+/* .header {
   background-image: url("./assets/header.webp");
   background-position: 25%;
   height: 200px;
-}
-*/
-/* div.modal-header {
+} */
+
+div.modal-header {
   background-image: url("./assets/modal1.jpg");
   background-position: center;
-  background-size: 75%;
+  background-size: 100%;
 }
 
 div.modal-body {
   background-image: url("./assets/background.jpg");
   background-size: auto;
-  position: fixed;
-} */
+} 
 
   /* html, */
 body {
