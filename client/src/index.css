@@ -36,6 +36,15 @@ nav {
   background-size: cover;
 }
 
+.navbar {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 10px;
+  border-color: black;
+  border-style: solid;
+}
+
 .nav-link {
   background-color: rgba(255, 0, 132, 0.7);
   background-image: url("./assets/background.jpg");
@@ -54,11 +63,10 @@ nav {
 
 .homebutton {
   background-image: url("./assets/background.jpg");
-  background-size: 50%;
-  opacity: .8;
+  background-size: 100%;
   box-shadow:0px 0px 5px 5px rgba(111, 0, 255, 0.801);
   color: rgba(255, 0, 132, 0.7);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: bold;
   text-decoration: none;
   padding: 0.25rem 1rem;
@@ -66,7 +74,7 @@ nav {
   border: none;
   outline: none;
   cursor: pointer;
-  margin: 10px 5px;
+  margin: 20px 20px;
 }
 
 
@@ -90,13 +98,31 @@ div.modal-body {
   /* html, */
 body {
   background-image: url("./assets/background.jpg");
-  background-size: contain;
+  background-size: cover;
   background-position: fixed; /* this doesnt work for some reason */
 }
 
 .maysSuperItemContainer{
   display:flex;
   justify-content: center;
+}
+
+
+/* --------- */
+/* Saved section */
+/* --------- */
+
+
+.jumbotron {
+  padding: 10px;
+  background-image: url("./assets/background.jpg");
+  background-size: 50%;
+  
+}
+
+.jumbotron h1 {
+  color: black;
+  font-weight: 800;
 }
 
 /* --------- */
