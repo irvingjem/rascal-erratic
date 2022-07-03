@@ -97,10 +97,11 @@ div.modal-body {
 
   /* html, */
 body {
-  background-image: url("./assets/background1.jpg");
-  background-size: fill;
+  background-image: url("./assets/background4.gif");
+  background-size: 1900px 1000px;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
+  background-position: 20% 70%;
 }
 
 .maysSuperItemContainer{
@@ -131,7 +132,8 @@ body {
 /* --------- */
 
 .card{
-  background-color: rgba(10, 201, 20, 0.411);
+  background: rgb(210,18,209);
+  background: radial-gradient(circle, rgba(210,18,209,0.4206057422969187) 0%, rgba(45,253,251,0.4206057422969187) 100%);
   /* fill-opacity: 50%; */
   backdrop-filter: blur(8px);
   padding: 2rem;
