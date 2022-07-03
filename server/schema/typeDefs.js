@@ -1,4 +1,6 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
+//    mintCount: Int saveMint: [Mint]
+
 
 const typeDefs = gql`
   type User {
