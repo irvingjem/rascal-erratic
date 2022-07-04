@@ -10,7 +10,7 @@ const typeDefs = gql`
     savedMint: [Mint]
   }
   type Mint {
-    mintName: ID!
+    name: String!
     description: String
     image: String
     symbol: String
@@ -28,8 +28,8 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveMint(mintData: ID!): User
-    removeMint(mintName: ID!): User
+    saveMint(mintData: String!): User
+    removeMint(mintName: String!): User
   }
 `;
 

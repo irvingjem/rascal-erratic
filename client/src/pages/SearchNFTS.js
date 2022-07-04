@@ -32,7 +32,7 @@ import { SAVE_MINT } from "../utils/mutations";
 
 // Function to pull Api data and display
 function SearchNFTS() {
-  const [saveMints, setSaveMint] = useState([]);
+  const [saveMint, setSaveMint] = useState([]);
   // API call
   const [saveUserMint] = useMutation(SAVE_MINT);
 
@@ -73,7 +73,7 @@ function SearchNFTS() {
   }, []);
 
   const handleSaveMint = async (name) => {
-    const mintToSave = saveMints.find((data) => data.name === name);
+    const mintToSave = saveMint.find((data) => data.name === name);
     console.log(mintToSave);
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
@@ -90,7 +90,7 @@ function SearchNFTS() {
       // }
 
       // if book successfully saves to user's account, save book id to state
-      setSaveMint([...saveMints, mintToSave.mintNames]);
+      setSaveMint([...saveMint, mintToSave.name]);
     } catch (err) {
       console.error(err);
     }
@@ -102,7 +102,7 @@ function SearchNFTS() {
       {/* <Jumbotron fluid className="header"></Jumbotron> */}
       <Container>
         <CardColumns>
-          {saveMints.map((mint) => (
+          {saveMint.map((mint) => (
             <Card key={mint.name} border="dark">
               {mint.image ? (
                 <Card.Img
@@ -120,13 +120,13 @@ function SearchNFTS() {
                 </Card.Subtitle>
                 {Auth.loggedIn() && (
                   <Button
-                    disabled={saveMints?.some(
-                      (saveMints) => saveMints === mint.name
+                    disabled={saveMint?.some(
+                      (saveMint) => saveMint === mint.name
                     )}
                     className="btn-block btn-info"
                     onClick={() => handleSaveMint(mint.name)}
                   >
-                    {saveMints?.some((saveMints) => saveMints === mint.name)
+                    {saveMint?.some((saveMint) => saveMint === mint.name)
                       ? "This NFT has already been saved!"
                       : "Save this NFT!"}
                   </Button>

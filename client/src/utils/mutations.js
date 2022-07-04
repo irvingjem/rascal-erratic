@@ -26,21 +26,19 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_MINT = gql`
-  mutation saveUserMint($mintData: MintInput!) {
-    saveUserMint(mintData: $mintData) {
+  mutation saveMint($mintData: String!) {
+    saveMint(mintData: $mintData) {
       _id
       username
       email
-      mintCount
-      saveMints {
+      saveMint {
         symbol
         name
         description
-        featured
         image
         price
         size
-        launchDatetime
+        launchDateTime
       }
     }
   }
