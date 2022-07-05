@@ -98,7 +98,7 @@ div.modal-body {
   /* html, */
 body {
   background-image: url("./assets/background4.gif");
-  background-size: cover;
+  background-size: 1920px 1080px;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 20% 70%;

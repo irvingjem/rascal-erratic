@@ -28,7 +28,7 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to="/saved" className="homebutton">
                     See Your Saved NFTS
                   </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link onClick={Auth.logout} className="homebutton">Logout</Nav.Link>
                 </>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)} className="homebutton">
