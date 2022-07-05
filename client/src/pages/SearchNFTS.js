@@ -34,7 +34,7 @@ import { SAVE_MINT } from "../utils/mutations";
 function SearchNFTS() {
   const [saveMint, setSaveMint] = useState([]);
   // API call
-  const [saveUserMint] = useMutation(SAVE_MINT);
+  const [saveUserMint, {error}] = useMutation(SAVE_MINT);
 
   useEffect(() => {
     const fetchMints = async () => {
