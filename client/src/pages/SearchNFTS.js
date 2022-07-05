@@ -113,7 +113,7 @@ function SearchNFTS() {
               {mint.image ? (
                 <Card.Img
                   src={mint.image}
-                  alt={`The cover for ${mint.image}`}
+                  alt={mint.name}
                   variant="top"
                 />
               ) : null}
