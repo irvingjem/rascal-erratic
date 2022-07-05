@@ -98,10 +98,10 @@ div.modal-body {
   /* html, */
 body {
   background-image: url("./assets/background4.gif");
-  background-size: cover;
+  background-size: 2560px 1440px;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 20% 70%;
+  background-position: 30% 10%;
 }
 
 .maysSuperItemContainer{
