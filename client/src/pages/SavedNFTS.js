@@ -16,7 +16,7 @@ import {
 const SavedNFTS = () => {
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark">
+      <Jumbotron fluid className="text-light text-center homebutton">
         <Container>
           <h1>Viewing saved NFTS!</h1>
         </Container>

@@ -118,8 +118,7 @@ body {
 .jumbotron {
   padding: 10px;
   background-image: url("./assets/background.jpg");
-  background-size: 50%;
-  
+  background-size: 35%;
 }
 
 .jumbotron h1 {
