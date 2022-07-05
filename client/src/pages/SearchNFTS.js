@@ -49,14 +49,14 @@ function SearchNFTS() {
       console.log(data);
       data.map((Nft) => {
         let fullDate = Nft.launchDatetime.split("-")[1];
-        console.log(fullDate);
+        // console.log(fullDate);
         if (fullDate == currentMonth) {
           thisMonthsNfts.push(Nft);
         } else {
-          console.log(fullDate + " is not the same month as " + currentMonth);
+          // console.log(fullDate + " is not the same month as " + currentMonth);
         }
       });
-      console.log(thisMonthsNfts);
+      // console.log(thisMonthsNfts);
       // const resultFilterMints = data.filter(function (dropDate) {
       //   let date = new Date(dropDate.launchDatetime);
       //   let monthMint = date.getMonth() + 1;
@@ -71,18 +71,24 @@ function SearchNFTS() {
     };
     fetchMints();
   }, []);
-
+  // Something isn't working here!
+  // Takes in all the data to save to push to GraphQL error here
   const handleSaveMint = async (name) => {
+    console.log(saveMint)
+
     const mintToSave = saveMint.find((data) => data.name === name);
-    console.log(mintToSave);
+    console.log(name);
+
+    //  token for login
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+    
     if (!token) {
       return false;
     }
 
     try {
       const { data } = await saveUserMint({
-        variables: { mintData: mintToSave },
+        variables: {mintData:mintToSave},
       });
 
       // if (!response.ok) {
@@ -90,7 +96,7 @@ function SearchNFTS() {
       // }
 
       // if book successfully saves to user's account, save book id to state
-      setSaveMint([...saveMint, mintToSave.name]);
+      setSaveMint([...saveMint, mintToSave.data]);
     } catch (err) {
       console.error(err);
     }

@@ -20,7 +20,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    // set saveMint to be an array of data that adheres to the bookSchema
+    // set saveMint to be an array of data that adheres to the mintSchema
     savedMint: [mintSchema],
   },
   // set this to use virtual below

@@ -31,14 +31,14 @@ export const SAVE_MINT = gql`
       _id
       username
       email
-      saveMint {
-        symbol
+      savedMint {
         name
         description
         image
-        price
-        size
+        symbol
         launchDateTime
+        size
+        price
       }
     }
   }
