@@ -39,7 +39,7 @@ function SearchNFTS() {
   useEffect(() => {
     const fetchMints = async () => {
       const result = await fetch(
-        `https://cors-anywhere.rascal-erratic.com/https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=200`
+        `https://cors-anywhere.herokuapp.com/https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=200`
       );
       const thisMonthsNfts = [];
       const startDate = new Date();
