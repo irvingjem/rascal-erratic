@@ -22,6 +22,15 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+  input MintInput {
+    name: String!
+    description: String
+    image: String
+    symbol: String
+    launchDateTime: String
+    size: String
+    price: Int
+  }
   type Query {
     me: User
   }
