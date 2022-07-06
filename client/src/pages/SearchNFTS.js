@@ -86,7 +86,7 @@ function SearchNFTS() {
 
     try {
       const { data } = await savedMint({
-        variables: {mintData: mintToSave}
+        variables: { mintData: mintToSave }
       });
 
       console.log(data);
