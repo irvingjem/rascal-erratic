@@ -75,6 +75,7 @@ function SearchNFTS() {
   // Takes in all the data to save to push to GraphQL error here
   const handleSaveMint = async (name) => {
     const mintToSave = saveMint.find((data) => data.name === name);
+
     //  token for login
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     

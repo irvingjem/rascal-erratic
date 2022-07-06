@@ -9,7 +9,7 @@ const mintSchema = new Schema({
     type: String,
     required: true,
   },
-  // saved mintname from GoogleBooks
+  // saved mintname from Magic Eden
   mintId: {
     type: String,
     required: true,
