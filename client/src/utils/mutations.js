@@ -33,13 +33,13 @@ export const SAVE_MINT = gql`
       email
       savedMint {
         name
-        featured
         description
-        image
         symbol
-        launchDateTime
+        image
+        launchDatetime
         size
         price
+        featured
       }
     }
   }

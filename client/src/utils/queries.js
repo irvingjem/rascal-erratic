@@ -12,7 +12,7 @@ export const GET_ME = gql`
         description
         symbol
         image
-        launchDateTime
+        launchDatetime
         size
         price
         featured

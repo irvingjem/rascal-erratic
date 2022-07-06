@@ -11,6 +11,11 @@ h6 {
   font-family: 'Rubik Mono One', sans-serif;
 }
 
+h2{
+  color:black;
+  font-weight: bold;
+}
+
 .small {
   font-weight: 300;
   font-style: italic;

@@ -132,8 +132,8 @@ console.log(saveMint)
                     onClick={() => handleSaveMint(mint.name)}
                   >
                     {saveMint?.some((saveMintUnit) => saveMintUnit.name === mint.name)
-                      ? "This NFT has already been saved!"
-                      : "Save this NFT!"}
+                      ? "Save this NFT!"
+                      : "This NFT has already been saved!"}
                   </Button>
                 )}
               </Card.Body>
