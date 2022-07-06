@@ -26,7 +26,7 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_MINT = gql`
-  mutation SavedMint($mintData: String!) {
+  mutation savedMint($mintData: MintInput!) {
     savedMint(mintData: $mintData) {
       _id
       username

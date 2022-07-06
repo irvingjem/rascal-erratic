@@ -74,9 +74,9 @@ function SearchNFTS() {
   // Something isn't working here!
   // Takes in all the data to save to push to GraphQL error here
   const handleSaveMint = async (name) => {
-    console.log(name);
+    // console.log(name);
     const mintToSave = saveMint.find((data) => data.name === name);
-    console.log(mintToSave);
+    // console.log(mintToSave);
     //  token for login
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     
@@ -86,7 +86,7 @@ function SearchNFTS() {
 
     try {
       const { data } = await savedMint({
-        variables: {mintData: "brokenft"}
+        variables: {mintData: mintToSave}
       });
 
       console.log(data);
