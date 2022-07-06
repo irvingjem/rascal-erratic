@@ -1,5 +1,4 @@
 import React from "react";
-// import { graphql } from "graphql";
 import {
   Jumbotron,
   Container,
@@ -8,12 +7,21 @@ import {
   Button,
 } from "react-bootstrap";
 // import Auth from "../utils/auth";
-// import { useMutation, useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
+import { GET_ME } from "../utils/queries";
 // import { GET_ME } from "../utils/queries";
 // import { REMOVE_MINT } from "../utils/mutations";
 // import { removeMintName } from "../utils/localStorage";
 
 const SavedNFTS = () => {
+
+  const {loading, data} = useQuery(GET_ME)
+  const userData = data?.me || [];
+  console.log(data)
+
+  if (loading) {
+    return <h2>LOADING...</h2>;
+  }
   return (
     <>
       <Jumbotron fluid className="text-light text-center homebutton">

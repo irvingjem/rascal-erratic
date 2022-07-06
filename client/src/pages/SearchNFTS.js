@@ -34,12 +34,12 @@ import { SAVE_MINT } from "../utils/mutations";
 function SearchNFTS() {
   const [saveMint, setSaveMint] = useState([]);
   // API call
-  const [saveUserMint, {error}] = useMutation(SAVE_MINT);
+  const [savedMint, {error}] = useMutation(SAVE_MINT);
 
   useEffect(() => {
     const fetchMints = async () => {
       const result = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=200`
+        `https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=200`
       );
       const thisMonthsNfts = [];
       const startDate = new Date();
@@ -74,11 +74,9 @@ function SearchNFTS() {
   // Something isn't working here!
   // Takes in all the data to save to push to GraphQL error here
   const handleSaveMint = async (name) => {
-    console.log(saveMint)
-
-    const mintToSave = saveMint.find((data) => data.name === name);
     console.log(name);
-
+    const mintToSave = saveMint.find((data) => data.name === name);
+    console.log(mintToSave);
     //  token for login
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     
@@ -87,30 +85,31 @@ function SearchNFTS() {
     }
 
     try {
-      const { data } = await saveUserMint({
-        variables: {mintData:mintToSave},
+      const { data } = await savedMint({
+        variables: {mintData: "brokenft"}
       });
 
+      console.log(data);
       // if (!response.ok) {
       //   throw new Error('something went wrong!');
       // }
 
       // if book successfully saves to user's account, save book id to state
-      setSaveMint([...saveMint, mintToSave.data]);
+      setSaveMint([...saveMint, mintToSave.name]);
     } catch (err) {
       console.error(err);
     }
   }; // Use effect array
-
+console.log(saveMint)
   // Rendering componant
   return (
     <>
       {/* <Jumbotron fluid className="header"></Jumbotron> */}
       <Container>
         <CardColumns>
-          {saveMint.map((mint) => (
-            <Card key={mint.name} border="dark">
-              {mint.image ? (
+          {saveMint?.map((mint) => (
+            <Card key={mint?.name} border="dark">
+              {mint?.image ? (
                 <Card.Img
                   src={mint.image}
                   alt={mint.name}
@@ -118,21 +117,21 @@ function SearchNFTS() {
                 />
               ) : null}
               <Card.Body>
-                <Card.Title>{mint.name}</Card.Title>
-                <p className="small">Price {mint.price} SOL</p>
-                <Card.Text>{mint.description}</Card.Text>
+                <Card.Title>{mint?.name}</Card.Title>
+                <p className="small">Price {mint?.price} SOL</p>
+                <Card.Text>{mint?.description}</Card.Text>
                 <Card.Subtitle>
-                  <Moment fromNow>{mint.launchDatetime}</Moment>
+                  <Moment fromNow>{mint?.launchDatetime}</Moment>
                 </Card.Subtitle>
                 {Auth.loggedIn() && (
                   <Button
-                    disabled={saveMint?.some(
-                      (saveMint) => saveMint === mint.name
-                    )}
+                    // disabled={saveMint?.some(
+                    //   (saveMintUnit) => saveMintUnit.name === mint.name
+                    // )}
                     className="btn-block btn-info"
                     onClick={() => handleSaveMint(mint.name)}
                   >
-                    {saveMint?.some((saveMint) => saveMint === mint.name)
+                    {saveMint?.some((saveMintUnit) => saveMintUnit.name === mint.name)
                       ? "This NFT has already been saved!"
                       : "Save this NFT!"}
                   </Button>

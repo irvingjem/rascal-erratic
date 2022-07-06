@@ -32,14 +32,21 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveMint: async (parent, { mintData }, context) => {
+    savedMint: async (parent, { mintData }, context) => {
+      console.log("helpme")
       if (context.user) {
+        try{
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $push: { saveMint: mintData } },
           { new: true }
-        );
-        return updatedUser;
+          )
+          console.log(updatedUser);
+          return updatedUser;
+        }catch(e){
+          console.log(e)
+        }
+        
       }
       throw new AuthenticationError("You need to be logged in!");
     },

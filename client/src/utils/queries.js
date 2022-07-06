@@ -7,28 +7,19 @@ export const GET_ME = gql`
       username
       email
       mintCount
-      saveMint {
-        symbol
+      savedMint{
         name
         description
-        featured
+        symbol
         image
-        price
+        launchDateTime
         size
-        launchDatetime
-      }
+        price
+        featured
       }
     }
   }
 `;
 
-export const QUERY_USER = gql`
-  {
-    user {
-      firstName
-      lastName
-  }
-}
-`;
 
 // SAVED NFTS array inside of "me"
