@@ -24,6 +24,9 @@ const mintSchema = new Schema({
   price: {
     type: String,
   },
+  name: {
+    type: String,
+  },
   size: {
     type: String,
     required: true,

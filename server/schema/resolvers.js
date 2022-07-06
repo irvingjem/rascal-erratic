@@ -33,12 +33,12 @@ const resolvers = {
       return { token, user };
     },
     savedMint: async (parent, { mintData }, context) => {
-      console.log("helpme")
+      console.log(context.user)
       if (context.user) {
         try{
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { saveMint: mintData } },
+          { $push: { savedMint: mintData } },
           { new: true }
           )
           console.log(updatedUser);

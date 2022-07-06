@@ -17,7 +17,7 @@ type Mint {
   image: String
   launchDatetime: String
   size: Int
-  price: Int
+  price: Float
   featured: Boolean
 }
 type Auth {
@@ -31,7 +31,7 @@ input MintInput {
   image: String
   launchDatetime: String
   size: Int
-  price: Int
+  price: Float
   featured: Boolean
 }
 type Query {
