@@ -14,12 +14,12 @@ const SavedNFTS = () => {
   // const [fetchedMints, setFetchedMints] = useState([]);
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
-  console.log(userData);
+  // console.log(userData);
   const [removeMint, { error }] = useMutation(REMOVE_MINT);
 
   const handleDeleteMint = async (mintId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-    console.log("hello from remove mint " + mintId);
+    // console.log("hello from remove mint " + mintId);
     if (!token) {
       return false;
     }
@@ -29,7 +29,7 @@ const SavedNFTS = () => {
         variables: { mintId },
       });
 
-      console.log(data);
+      // console.log(data);
     } catch (err) {
       console.error(err);
     }

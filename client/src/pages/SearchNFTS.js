@@ -36,7 +36,7 @@ function SearchNFTS() {
   // Save NFT button function
   const handleSaveMint = async (name) => {
     const mintToSave = fetchedMints.find((data) => data.name === name);
-    console.log("hello from handle save mint", mintToSave);
+    // console.log("hello from handle save mint", mintToSave);
     //  token for login
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -45,12 +45,12 @@ function SearchNFTS() {
     }
 
     try {
-      console.log("hello from handle save try");
+      // console.log("hello from handle save try");
       const { data } = await savedMint({
         variables: { mintData: mintToSave },
       });
 
-      console.log(data);
+      // console.log(data);
       // if (!response.ok) {
       //   throw new Error('something went wrong!');
       // }
@@ -58,11 +58,11 @@ function SearchNFTS() {
       // if book successfully saves to user's account, save book id to state
       // setFetchedMints([...saveMint, mintToSave.name]);
     } catch (err) {
-      console.error(err);
+      // console.error(err);
     }
   }; // Use effect array
   // Rendering component
-  console.log(fetchedMints);
+  // console.log(fetchedMints);
   return (
     <>
       <Container>
