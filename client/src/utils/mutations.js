@@ -32,6 +32,7 @@ export const SAVE_MINT = gql`
       username
       email
       savedMint {
+        _id
         name
         description
         symbol
@@ -48,11 +49,12 @@ export const SAVE_MINT = gql`
 export const REMOVE_MINT = gql`
   mutation removeMint($mintId: ID!) {
     removeMint(mintId: $mintId) {
-      # _id
+      _id
       username
       email
       mintCount
-      savedMints {
+      savedMint {
+        _id
         name
         description
         symbol
@@ -65,4 +67,3 @@ export const REMOVE_MINT = gql`
     }
   }
 `;
-

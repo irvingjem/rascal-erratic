@@ -9,31 +9,27 @@ import {
 import Auth from "../utils/auth";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_ME } from "../utils/queries";
-// import { GET_ME } from "../utils/queries";
 import { REMOVE_MINT } from "../utils/mutations";
-import { removeMintName } from "../utils/localStorage";
-
 const SavedNFTS = () => {
+  // const [fetchedMints, setFetchedMints] = useState([]);
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
-  console.log(data);
-  const [deleteMint, { error }] = useMutation(REMOVE_MINT);
+  console.log(userData);
+  const [removeMint, { error }] = useMutation(REMOVE_MINT);
 
-
-  const handleDeleteMint = async (name) => {
+  const handleDeleteMint = async (mintId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-
+    console.log("hello from remove mint " + mintId);
     if (!token) {
       return false;
     }
 
     try {
-      const { data } = await deleteMint({
-        variables: { mintData: "something" },
+      const { data } = await removeMint({
+        variables: { mintId },
       });
 
-      removeMintName(name);
+      console.log(data);
     } catch (err) {
       console.error(err);
     }
@@ -52,22 +48,35 @@ const SavedNFTS = () => {
       <Container>
         <h2>
           {userData.savedMint.length
-          ?`Viewing ${userData.savedMint.length} saved ${userData.savedMint.length === 1 ? 'Mint' : "Mints"}:`
-          : 'You have no saved books!'}
+            ? `Viewing ${userData.savedMint.length} saved ${
+                userData.savedMint.length === 1 ? "Mint" : "Mints"
+              }:`
+            : "You have no saved NFTs!"}
         </h2>
         <CardColumns>
-        {userData.savedMint.map((mint) => {
-          return (
-          <Card key={mint.name} border='dark'>
-            {mint.image ? <Card.Img src={mint.image} alt={`The NFT image for ${mint.name}`} variant='top'  /> : null }
-            <Card.Body>
-              <Card.Title>{mint.name}</Card.Title>
-              <Card.Text>{mint.description}</Card.Text>
-              <Button className='btn-block btn-danger' onClick={() => handleDeleteMint(mint.name)}>Delete this NFT!</Button>
-            </Card.Body>
-          </Card>
-          );
-        })}
+          {userData.savedMint.map((mint) => {
+            return (
+              <Card key={mint._id} border="dark">
+                {mint.image ? (
+                  <Card.Img
+                    src={mint.image}
+                    alt={`The NFT image for ${mint.name}`}
+                    variant="top"
+                  />
+                ) : null}
+                <Card.Body>
+                  <Card.Title>{mint.name}</Card.Title>
+                  <Card.Text>{mint.description}</Card.Text>
+                  <Button
+                    className="btn-block btn-danger"
+                    onClick={() => handleDeleteMint(mint.name)}
+                  >
+                    Delete this NFT!
+                  </Button>
+                </Card.Body>
+              </Card>
+            );
+          })}
         </CardColumns>
       </Container>
     </>

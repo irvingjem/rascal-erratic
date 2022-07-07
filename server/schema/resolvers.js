@@ -33,33 +33,32 @@ const resolvers = {
       return { token, user };
     },
     savedMint: async (parent, { mintData }, context) => {
-      console.log(context.user)
+      console.log(context.user);
       if (context.user) {
-        try{
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { savedMint: mintData } },
-          { new: true }
-          )
+        try {
+          const updatedUser = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $push: { savedMint: mintData } },
+            { new: true }
+          );
           console.log(updatedUser);
           return updatedUser;
-        }catch(e){
-          console.log(e)
+        } catch (e) {
+          console.log(e);
         }
-        
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    removeMint: async (parent, { mintId }, context) => {
+    removeMint: async (parent, { mint }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedBooks: { mintId } } },
+          { $pull: { savedMint: mint._id } },
           { new: true }
         );
         return updatedUser;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };
