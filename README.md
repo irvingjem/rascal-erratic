@@ -35,7 +35,9 @@ SO THAT I can flex on all my friends <br>
 ---
 ![Project Showcase](./client/src/assets/Rascal-Erratic-v2.gif)
 
-![](./client/src/assets/vaporwave3.webp)
+[Link to Deployed Application](https://rascal-erratic.herokuapp.com/)
+
+![Illuminati](./client/src/assets/vaporwave3.webp)
 
 ## About
 ---
