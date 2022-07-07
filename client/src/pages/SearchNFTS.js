@@ -1,92 +1,53 @@
 import React, { useState, useEffect } from "react";
 import Moment from "react-moment";
-import {
-  Jumbotron,
-  Container,
-  // Col,
-  // Form,
-  Button,
-  Card,
-  CardColumns,
-} from "react-bootstrap";
-// import { getMints } from "../utils/API";
+import { Container, Button, Card, CardColumns } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
-// import { useQuery } from "@apollo/client";
-// import { GET_ME } from '../utils/queries'
 import { SAVE_MINT } from "../utils/mutations";
-// import { REMOVE_MINT } from '../utils/mutations';
-
-// import { saveMintNames, getSavedMintNames } from "../utils/localStorage";
-
-// const getLaunchpad = () => {
-//     try { const response = await getMints();
-//         if (!response.ok) {
-//             throw new Error("Something went wrong!");
-//           }
-//     }
-//     return(
-//         <div>Someshit</div>
-//     )
-// }
-
-// Function to pull Api data and display
+// Function to pull Api data and display on page load
 function SearchNFTS() {
-  const [saveMint, setSaveMint] = useState([]);
+  const [fetchedMints, setFetchedMints] = useState([]);
   // API call
-  const [savedMint, {error}] = useMutation(SAVE_MINT);
+  const [savedMint, { error }] = useMutation(SAVE_MINT);
 
   useEffect(() => {
     const fetchMints = async () => {
       const result = await fetch(
         `https://cors-anywhere.herokuapp.com/https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=200`
       );
+      // Returns list of 200 NFTs as JSON
+      const data = await result.json();
+      // console.log(data);
+      // Function to check current month against NFT's drop date month
       const thisMonthsNfts = [];
       const startDate = new Date();
       const currentMonth = startDate.getMonth() + 1;
-      console.log(currentMonth);
-      const data = await result.json();
-      console.log(data);
-      data.map((Nft) => {
-        let fullDate = Nft.launchDatetime.split("-")[1];
-        // console.log(fullDate);
-        if (fullDate == currentMonth) {
+      data.forEach((Nft) => {
+        let launchDate = Nft.launchDatetime.split("-")[1];
+        if (parseInt(launchDate) === currentMonth) {
           thisMonthsNfts.push(Nft);
         } else {
-          // console.log(fullDate + " is not the same month as " + currentMonth);
         }
       });
-      // console.log(thisMonthsNfts);
-      // const resultFilterMints = data.filter(function (dropDate) {
-      //   let date = new Date(dropDate.launchDatetime);
-      //   let monthMint = date.getMonth() + 1;
-      //   console.log(monthMint);
-      //   //  for (i = 0; i < data.length; i++) {
-
-      //   //  }
-      //   return date >= startDate;
-      // });
-      // console.log(resultFilterMints);
-      setSaveMint(thisMonthsNfts);
+      setFetchedMints(thisMonthsNfts);
     };
     fetchMints();
   }, []);
-  // Something isn't working here!
-  // Takes in all the data to save to push to GraphQL error here
+  // Save NFT button function
   const handleSaveMint = async (name) => {
-    // console.log(name);
-    const mintToSave = saveMint.find((data) => data.name === name);
-    // console.log(mintToSave);
+    const mintToSave = fetchedMints.find((data) => data.name === name);
+    console.log("hello from handle save mint", mintToSave);
     //  token for login
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-    
+
     if (!token) {
       return false;
     }
 
     try {
+      console.log("hello from handle save try");
       const { data } = await savedMint({
-        variables: { mintData: mintToSave }
+        variables: { mintData: mintToSave },
       });
 
       console.log(data);
@@ -95,26 +56,21 @@ function SearchNFTS() {
       // }
 
       // if book successfully saves to user's account, save book id to state
-      setSaveMint([...saveMint, mintToSave.name]);
+      // setFetchedMints([...saveMint, mintToSave.name]);
     } catch (err) {
       console.error(err);
     }
   }; // Use effect array
-console.log(saveMint)
-  // Rendering componant
+  // Rendering component
+  console.log(fetchedMints);
   return (
     <>
-      {/* <Jumbotron fluid className="header"></Jumbotron> */}
       <Container>
         <CardColumns>
-          {saveMint?.map((mint) => (
-            <Card key={mint?.name} border="dark">
+          {fetchedMints.map((mint) => (
+            <Card key={mint.name} border="dark">
               {mint?.image ? (
-                <Card.Img
-                  src={mint.image}
-                  alt={mint.name}
-                  variant="top"
-                />
+                <Card.Img src={mint.image} alt={mint.name} variant="top" />
               ) : null}
               <Card.Body>
                 <Card.Title>{mint?.name}</Card.Title>
@@ -131,7 +87,9 @@ console.log(saveMint)
                     className="btn-block btn-info"
                     onClick={() => handleSaveMint(mint.name)}
                   >
-                    {saveMint?.some((saveMintUnit) => saveMintUnit.name === mint.name)
+                    {fetchedMints?.some(
+                      (saveMintUnit) => saveMintUnit.name === mint.name
+                    )
                       ? "Save this NFT!"
                       : "This NFT has already been saved!"}
                   </Button>

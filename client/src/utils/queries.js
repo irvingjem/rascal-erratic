@@ -7,7 +7,8 @@ export const GET_ME = gql`
       username
       email
       mintCount
-      savedMint{
+      savedMint {
+        _id
         name
         description
         symbol
@@ -20,6 +21,5 @@ export const GET_ME = gql`
     }
   }
 `;
-
 
 // SAVED NFTS array inside of "me"
