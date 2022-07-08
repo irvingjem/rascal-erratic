@@ -13,7 +13,7 @@ function SearchNFTS() {
   useEffect(() => {
     const fetchMints = async () => {
       const result = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=200`
+        `https://api-mainnet.magiceden.dev/v2/launchpad/collections?offset=0&limit=200`
       );
       // Returns list of 200 NFTs as JSON
       const data = await result.json();

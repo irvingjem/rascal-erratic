@@ -49,11 +49,11 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    removeMint: async (parent, { mint }, context) => {
+    removeMint: async (parent, { _id }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedMint: mint._id } },
+          { $pull: { savedMint: _id } },
           { new: true }
         );
         return updatedUser;
